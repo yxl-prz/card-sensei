@@ -1,0 +1,74 @@
+.play-button {
+    height: 2.2em;
+    border-radius: 2em;
+    background-color: #41474f;
+    border: 0px;
+    width: 2.2em;
+}
+
+.play-button:hover {
+    background-color: #54595f;
+}
+
+.expression-holder {
+    gap: 0.8em;
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.badge-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+#inputs {
+	display: flex;
+	gap: 1.2em;
+	justify-content: center;
+}
+
+#inputs > button {
+	width: 5em;
+}
+
+.hidden {
+	display: none;
+}
+
+.expression:before {
+	content: attr(furigana);
+	display: block;
+    font-size: 50%;
+    text-align: center;
+	line-height: 1.5;
+}
+
+.expression {
+	display: inline-block;
+	text-indent: 0px;
+	line-height: normal;
+	text-align: center;
+	line-height: 1;
+}
+
+.anki-add-container {
+    gap: 0.92em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anki-add-deck-select {
+    width: 35em;
+}
+
+.language_selection_select {
+    width: 8em;
+}
+
+br {
+	width: 40em;
+}

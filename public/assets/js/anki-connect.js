@@ -1,6 +1,6 @@
 window.anki = null;
 
-const ModelName = "Card先生.v0.1";
+const ModelName = "Card先生.v0.2";
 
 class Anki {
     constructor() {
@@ -83,13 +83,13 @@ class Anki {
         return new Promise((resolve, reject) => {
             this.request("createModel", {
                 "modelName": ModelName,
-                "inOrderFields": ["Kanji", "Reading", "Definitions", "Audio", "Sentence", "SentenceTranslation"],
+                "inOrderFields": ["Kanji", "Reading", "Definitions", "Audio", "Sentence", "SentenceTranslation", "PitchAccent"],
                 "isCloze": false,
                 "cardTemplates": [
                     {
                         "Name": ModelName,
                         "Front": `<div style="text-align: center;"><h1><span>{{Audio}}</span> <span>{{Kanji}}</span></h1></div>`,
-                        "Back": `<div style="text-align: center;"><h1><span>{{Audio}}</span> <span><ruby>{{Kanji}}<rp>（</rp><rt>{{Reading}}</rt><rp>）</rp></ruby></span></h1><hr><h1>{{Definitions}}</h1><br><hr><div class="sentence"><h1>{{Sentence}}</h1><h2>{{SentenceTranslation}}</h2></div></div>`
+                        "Back": `<div style="text-align: center;"><h1><span>{{Audio}}</span> <span><ruby>{{Kanji}}<rp>（</rp><rt>{{Reading}}</rt><rp>）</rp></ruby><br><br>{{PitchAccent}}</span></h1><hr><h1>{{Definitions}}</h1><br><hr><div class="sentence"><h1>{{Sentence}}</h1><h2>{{SentenceTranslation}}</h2></div></div>`
                     }
                 ]
             }).then(resolve).catch(reject);

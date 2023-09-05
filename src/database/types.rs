@@ -26,6 +26,7 @@ pub struct WordPitch {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Sentence {
+    #[serde(skip_serializing)]
     #[serde(rename = "_id")]
     pub id: ObjectId,
     pub sentence: String,

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card先生</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    <!-- JavaScript -->
+    <script src="./assets/js/bootstrap.bundle.js" defer></script>
+    <script src="./assets/js/settings.js" defer></script>
+    <script src="./assets/js/util.js" defer></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="btn btn-outline-secondary" href="/">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                  </svg></span>
+                </a>
+        </div>
+    </nav>
+    <!-- MODALS -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="settingsLabel"><ruby>設定<rp>（</rp>
+                            <rt>Settings</rt>
+                            <rp>）</rp>
+                        </ruby></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="PreferredLanguage" aria-label="Display when Available"
+                            onchange="window.settings.set_value('PreferredLanguage', this.value)">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="nl">Dutch</option>
+                            <option value="hu">Hungarian</option>
+                            <option value="ru">Russian</option>
+                            <option value="se">Swedish</option>
+                            <option value="de">German</option>
+                        </select>
+                        <label for="PreferredLanguage">Display when Available</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="PlayAudioOnFetch" aria-label="Play Audio on Fetch"
+                            onchange="window.settings.set_value('PlayAudioOnFetch', this.value)">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                        <label for="PlayAudioOnFetch">Auto-audio Play</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="AnkiPort" placeholder="Default: 8765"
+                            oninput="clearInterval(window.event_timers['AnkiPort']);window.event_timers['AnkiPort']=setTimeout(() => {window.settings.set_value('AnkiPort', this.value)}, 250)">
+                        <label for="AnkiPort">Anki Port</label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- HERO -->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6"
+                style="border: 0.24em solid var(--bs-emphasis-color);display: flex;gap: 0px;flex-direction: column;border-radius: 1em;">
+                <span class="color-effect color-effect-hero" style="word-wrap:break-word;text-align: left;">簡単</span>
+                <span class="color-effect color-effect-hero" style="word-wrap:break-word;text-align: center;">漢字</span>
+                <span class="color-effect color-effect-hero" style="word-wrap:break-word;text-align: right;">覚える</span>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Introducing Card先生</h1>
+                <p class="lead">An open-sourced web page for <strong>Japanese learners</strong> to be able to make
+                    <strong>well-made</strong> <a href="https://apps.ankiweb.net/" target="_blank"
+                        style="text-decoration: none;">Anki</a> flashcards with the click of a button!
+                </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="/cards" class="btn btn-primary btn-lg px-4 me-md-2">Create Cards <svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path
+                                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                        </svg></a>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#settingsModal"
+                        class="btn btn-outline-secondary btn-lg px-4" href="#settings" class="nav-link"
+                        data-bs-toggle="tab" onclick="Object.keys(window.settings.settings).forEach(setting_name => {
+                            let setting_value = window.settings.settings[setting_name];
+                            document.getElementById(setting_name).value = setting_value;
+                        });">Settings <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

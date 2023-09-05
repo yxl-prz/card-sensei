@@ -1,9 +1,9 @@
 <h1 align="center">Card先生 - Easier Flashcards</h1>
 <p align="center">
     <a href="https://www.rust-lang.org/" alt="Made In">
-        <img src="https://img.shields.io/badge/MADE WITH-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=yellow" /></a>
+        <img src="https://img.shields.io/badge/MADE WITH-rust-red?style=for-the-badge&logo=rust&logoColor=red" /></a>
     <a href="https://github.com/yxl-prz/card-sensei/releases/latest" alt="Version">
-        <img src="https://img.shields.io/badge/VERSION-1.0.0-yellow?style=for-the-badge" /></a>
+        <img src="https://img.shields.io/badge/VERSION-2.0.0-yellow?style=for-the-badge" /></a>
     <a href="https://github.com/yxl-prz/card-sensei/graphs/contributors" alt="Version">
         <img src="https://img.shields.io/github/contributors/yxl-prz/card-sensei?style=for-the-badge" /></a>
 </p>
@@ -31,3 +31,13 @@ Said parties does not endorse or sponsor this project.
 * * [IllDepence/SVG_pitch](https://github.com/IllDepence/SVG_pitch)
 * Audio
 * * [JapanesePod101](https://www.japanesepod101.com/)
+
+## Want to Donate?
+<div>
+    <a href="https://www.buymeacoffee.com/yxl.prz" target="_blank" style="display: inline-block;">
+        <img
+            src="https://img.shields.io/badge/Donate-Buy%20Me%20A%20Coffee-orange.svg?style=flat-square&logo=buymeacoffee" 
+            align="center"
+        />
+    </a>
+</div>

@@ -1,0 +1,17 @@
+[package]
+name = "card-sensei"
+version = "0.1.0"
+authors = ["yxl-prz"]
+repository = "https://github.com/yxl-prz/card-sensei"
+license-file = "LICENSE"
+edition = "2021"
+
+[dependencies]
+axum = "0.6.20"
+dotenv = "0.15.0"
+minijinja = {version = "1.0.7", features = ["loader"]}
+mongodb = "2.6.1"
+serde = { version = "1.0.188", features = ["derive"] }
+serde_json = "1.0.105"
+tokio = { version = "1.32.0", features = ["full"] }
+tower-http = { version = "0.4.0", features = ["fs", "trace"] }

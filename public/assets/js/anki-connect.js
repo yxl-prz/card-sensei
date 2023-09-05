@@ -43,7 +43,7 @@ class Anki {
         return res;
     }
 
-    async add(deck, Kanji, Reading, Definitions, Audio="", Sentence="", SentenceTranslation="") {
+    async add(deck, Kanji, Reading, Definitions, Audio="", Sentence="", SentenceTranslation="", PitchAccent="") {
         return new Promise(async (resolve, reject) => {
             this.request("guiAddCards", {
                 "note": {
@@ -55,7 +55,8 @@ class Anki {
                         Definitions,
                         Audio,
                         Sentence,
-                        SentenceTranslation
+                        SentenceTranslation,
+                        PitchAccent
                     },
                     "tags": [
                         "Card先生"

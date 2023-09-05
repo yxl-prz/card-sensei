@@ -36,8 +36,9 @@ let inputs = {
             exp.reading,
             exp.definitions[preferred_language].join(", "),
             (window.dictionary.expression.audio == null) ? "" : `[sound:${anki_audio_file}]`,
-            (sentence) ? sentence.sentence : "",
-            (sentence.translations[preferred_language]) ? translations : "").then(res => {
+            (sentence) ? sentence.markdown : "",
+            (sentence.translations[preferred_language]) ? translations : "",
+            dictionary.pitch_accent).then(res => {
                 console.log("[Interface] Added to Anki");
             }).catch(e => {
                 console.error(`[Interface] Error adding to Anki; ${e}`);
@@ -134,6 +135,8 @@ let create_flashcard = async (exp = null, reset_sentence = false) => {
 
     if (expression.pitches && expression.pitches.length > 0) {
         window.dictionary.pitch_accent = draw_pitch(expression.reading, expression.pitches[0].notation.join(""), card_components.pitch_accent);
+    } else {
+        window.dictionary.pitch_accent = "";
     }
 
 
